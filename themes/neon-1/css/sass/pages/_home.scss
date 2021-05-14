@@ -1,0 +1,24 @@
+@use '../abstracts/index' as *;
+
+@keyframes bgNoise{
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 500px;
+    }
+}
+body{
+    background: darken($neon-1, 54%) url('../img/img-noise-500x500.png');
+    background-blend-mode: multiply;
+    animation: bgNoise 240s linear infinite;
+}
+p{
+    font-size: 1.4em;
+    color: $neon-1;
+    text-shadow: 0 0 1em lighten($neon-1, 10%);
+    &::selection{
+        background: $neon-1;
+        color: darken($neon-1, 53%);
+    }  
+}

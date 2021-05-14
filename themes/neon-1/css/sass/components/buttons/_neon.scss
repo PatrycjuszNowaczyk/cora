@@ -1,0 +1,174 @@
+@use '../../abstracts/index' as *;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+@keyframes turnOnLight {
+    0% {
+        opacity: 1;
+        background-color: currentColor;
+    }
+    1% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    10% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    11% {
+        opacity: 1;
+        background-color: currentColor;
+    }
+    13% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    50% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    51% {
+        opacity: 1;
+        background-color: currentColor;
+    }
+    54% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    60% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    61% {
+        opacity: 1;
+        background-color: currentColor;
+    }
+    62% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    64% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    65% {
+        opacity: 1;
+        background-color: currentColor;
+    }
+    66% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    70% {
+        opacity: 1;
+        background-color: currentColor;
+    }
+    71% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    78% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    79% {
+        opacity: 1;
+        background-color: currentColor;
+    }
+    83% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    90% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    91% {
+        opacity: 1;
+        background-color: currentColor;
+    }
+    92% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    96% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    97% {
+        opacity: 1;
+        background-color: currentColor;
+    }
+    98% {
+        opacity: 0.35;
+        background-color: transparent;
+    }
+    100% {
+        opacity: 1;
+        background-color: currentColor;
+    }
+}
+
+.btn-neon-1 {
+    $color: $neon-1;
+    $colorLighten: lighten($neon-1, 10%);
+    $colorDarken: darken($neon-1, 54%);
+    position: relative;
+    display: inline-block;
+    color: $color;
+    font-size: 1em;
+    background-color: transparent;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    text-rendering: geometricPrecision;
+    text-shadow: 0 0 0.2em $color;
+    border: 0.2em solid $color;
+    border-radius: 0.8em;
+    padding: 0.25em 1em;
+    box-shadow: inset 0 0 0.5em $color, 0 0 0.5em $color;
+    z-index: 0;
+    &::before {
+        content: '';
+        position: absolute;
+        background-color: transparent;
+        border-radius: 0.8em;
+        top: -0.2em;
+        left: -0.2em;
+        width: calc(100% + 0.4em);
+        height: calc(100% + 0.4em);
+        opacity: 0;
+        box-shadow: 0 0 1.6em $colorLighten;
+        pointer-events: none;
+        z-index: -1;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        background: $color url('../img/img-noise-500x500.png');
+        border: 10vw solid $color;
+        border-radius: 50%;
+        top: 0;
+        left: -50vw;
+        width: 50vw;
+        height: 50vw;
+        transform: translate(-50%, -50%);
+        filter: blur(3.7vw);
+        opacity: 0.15;
+        pointer-events: none;
+        z-index: -1;
+    }
+    &:hover {
+        background-color: $color;
+        animation: turnOnLight 0.8s forwards;
+        span {
+            color: $colorDarken;
+        }
+        &:after {
+            animation: turnOnLight 0.8s forwards;
+            background: $colorLighten !important;
+            opacity: 0.35 !important;
+        }
+        &:before {
+            animation: turnOnLight 0.8s forwards;
+            background: transparent !important;
+        }
+    }
+}
